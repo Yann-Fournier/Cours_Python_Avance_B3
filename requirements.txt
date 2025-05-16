@@ -4,3 +4,4 @@ numpy==2.2.4
 ipykernel==6.29.5
 openpyxl==3.1.5
 folium==0.19.5
+pytest==8.3.5
