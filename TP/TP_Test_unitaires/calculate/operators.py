@@ -213,7 +213,7 @@ class Operators:
         """
             Makes the racine carree calculation.
         """
-        if len(self.numbers) == 1:
+        if len(self.numbers) == 1 and float(self.numbers[0]) >= 0:
             self.result = float(self.numbers[0]) ** 0.5
         else :
             self.result = None
