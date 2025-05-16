@@ -28,8 +28,8 @@ pizzas = [
 st.title("App de gestion de pizzas")
 
 # Création des onglets
-onglet1, onglet2, onglet3, onglet4, onglet5 = st.tabs(["Composition", "Menu", "Analyse", "Recommendation", "Classification"])
-
+onglet1, onglet2, onglet3, = st.tabs(["Composition", "Menu", "Analyse"])
+    
 # Contenu du premier onglet
 with onglet1:
     st.header("Création d'une pizza personalisée :")
@@ -38,13 +38,13 @@ with onglet1:
     ingredients = st.text_input("Entrez les ingrédients de votre pizza (séparés par des virgules) :")
     if st.button("Créer la pizza"):
         if nom and ingredients:
-            pizzas_juste_add = Pizza(nom, [ingredient.strip() for ingredient in ingredients.split(",")])
+            pizzas_juste_add = Pizza(nom, [ingredient.lower().strip() for ingredient in ingredients.split(",")])
             pizzas_juste_add.ajouter_ingredient_price()
             pizzas.append(pizzas_juste_add)
             st.success(f"Votre pizza '{nom}' a été créée avec les ingrédients : {', '.join(pizzas_juste_add.ingredient)}")
         else:
             st.error("Veuillez entrer un nom et des ingrédients pour créer votre pizza.")
-
+        
 # Contenu du deuxième onglet
 with onglet2:
     st.header("Menu des pizzas")
@@ -107,12 +107,5 @@ with onglet3:
     ax.set_title("Répartition des types de pizzas")
     st.pyplot(fig)
     st.write("---")
-    
-# Contenu du quatrième onglet
-with onglet4:
-    st.header("Recommandations basiques de pizzas")
 
-# Contenu du cinquième onglet
-with onglet5:
-    st.header("Classification des pizzas")
 
