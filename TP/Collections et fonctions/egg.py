@@ -1,9 +1,17 @@
 import time
 
-def decompte(temps_min):
+def decompte(temps_min: int) -> None:
     """
+    **Description :** \n
     Fonction de compte à rebours pour la cuisson des oeufs.
-    input : temps en minutes
+    
+    -----------
+    **input :** \n
+    temps_min (int) : Temps de cuisson en minutes 
+    
+    ---------------
+    **output :** \n
+        None
     """
     cpt = 0
     print()
